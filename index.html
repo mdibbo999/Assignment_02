@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Always Fresh Flowers</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Roboto', sans-serif;
+    }
+
+    body {
+      background-color: #f7faff;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      background-color: #fff;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    header nav a {
+      margin: 0 1rem;
+      text-decoration: none;
+      color: #333;
+    }
+
+    header .logo {
+      font-weight: bold;
+      color: orange;
+    }
+
+    .hero {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .hero-text {
+      flex: 1;
+      max-width: 500px;
+    }
+
+    .hero-text h1 {
+      font-size: 2.5rem;
+      color: #333;
+    }
+
+    .hero-text span {
+      color: orange;
+    }
+
+    .hero-text p {
+      margin-top: 1rem;
+      font-size: 1rem;
+    }
+
+    .hero-img img {
+      max-width: 300px;
+      width: 100%;
+    }
+
+    .section-title {
+      text-align: center;
+      margin: 2rem 0 1rem;
+      font-size: 2rem;
+    }
+
+    .products {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+      padding: 0 2rem;
+    }
+
+    .product {
+      background: #fff;
+      padding: 1rem;
+      border-radius: 8px;
+      text-align: center;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    }
+
+    .product img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 5px;
+    }
+
+    .product h3 {
+      margin-top: 0.5rem;
+      font-size: 1.1rem;
+    }
+
+    .product p {
+      color: #999;
+      font-size: 0.9rem;
+    }
+
+    .btn {
+      display: inline-block;
+      margin-top: 0.5rem;
+      background: orange;
+      color: white;
+      padding: 0.5rem 1rem;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .info-section {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      padding: 2rem;
+    }
+
+    .info-section img {
+      max-width: 100%;
+      flex: 1;
+      border-radius: 8px;
+    }
+
+    .info-section .info-text {
+      flex: 1;
+    }
+
+    .info-section .badge {
+      width: 80px;
+      margin-bottom: 1rem;
+    }
+
+    /* Deals Section */
+    h2 {
+      font-size: 2rem;
+      text-align: center;
+      margin-bottom: 0.5rem;
+    }
+
+    .highlight {
+      color: #f97316;
+      font-weight: 700;
+    }
+
+    .subtitle {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto 2rem;
+      color: #777;
+      font-size: 1rem;
+    }
+
+    .deal-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+      padding: 1rem 2rem 3rem;
+    }
+
+    .left-deals {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .deal-card {
+      position: relative;
+      background-size: cover;
+      background-position: center;
+      border-radius: 10px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+    }
+
+    .deal-card.small {
+      width: 260px;
+      height: 200px;
+    }
+
+    .deal-card.large {
+      width: 600px;
+      height: 423px;
+    }
+
+    .overlay {
+      background: rgba(0, 0, 0, 0.4);
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 1rem;
+    }
+
+    .discount {
+      font-size: 1.2rem;
+      font-weight: bold;
+      margin-bottom: 0.5rem;
+    }
+
+    .overlay a {
+      background: #fff;
+      color: #f97316;
+      padding: 0.4rem 1rem;
+      border-radius: 20px;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .newsletter {
+      background-image: url('https://i.ibb.co/dQMN9CJ/newsletter.jpg');
+      background-size: cover;
+      background-position: center;
+      color: white;
+      padding: 4rem 2rem;
+      text-align: center;
+    }
+
+    .newsletter-form {
+      margin-top: 1rem;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .newsletter-form input {
+      padding: 0.75rem 1rem;
+      width: 250px;
+      border: none;
+      border-radius: 4px 0 0 4px;
+      font-size: 1rem;
+    }
+
+    .newsletter-form button {
+      padding: 0.75rem 1rem;
+      background-color: #f97316;
+      border: none;
+      color: white;
+      font-size: 1rem;
+      border-radius: 0 4px 4px 0;
+      cursor: pointer;
+    }
+
+    footer {
+      background: #f8f8f8;
+      padding: 2rem;
+    }
+
+    .footer-top {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .footer-brand {
+      max-width: 300px;
+    }
+
+    .footer-brand .logo {
+      font-size: 1.5rem;
+      color: #f97316;
+      margin-bottom: 0.5rem;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 2rem;
+    }
+
+    .footer-links div h4 {
+      margin-bottom: 0.5rem;
+      font-size: 1rem;
+      color: #333;
+    }
+
+    .footer-links a {
+      display: block;
+      text-decoration: none;
+      color: #666;
+      margin-bottom: 0.25rem;
+      font-size: 0.9rem;
+    }
+
+    .footer-social a {
+      font-size: 1.2rem;
+      margin-right: 0.5rem;
+      text-decoration: none;
+      color: #333;
+    }
+
+    @media (max-width: 768px) {
+      .hero, .info-section, .deal-grid {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .left-deals, .deal-card.large {
+        width: 90%;
+      }
+
+      .newsletter-form {
+        flex-direction: column;
+      }
+
+      .newsletter-form input, .newsletter-form button {
+        width: 90%;
+        border-radius: 4px;
+        margin: 0.25rem 0;
+      }
+
+      .footer-top {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .footer-links {
+        flex-direction: column;
+      }
+
+      .footer-social {
+        margin-top: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">Taukgel</div>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#">Shop</a>
+      <a href="#">About Us</a>
+    </nav>
+    <div class="cart">🛒 Cart | $0.00</div>
+  </header>
+
+  <section class="hero">
+    <div class="hero-text">
+      <h1>ALWAYS <span>FRESH</span> FLOWERS</h1>
+      <p>Indulge your senses with the beauty and fragrance of our fresh flower shop. From classic roses to exotic blooms, we offer a wide variety of fresh flowers that are perfect for any occasion.</p>
+    </div>
+    <div class="hero-img">
+      <img src="https://i.imgur.com/KnYVKwP.png" alt="Fresh Flowers" />
+    </div>
+  </section>
+
+  <h2 class="section-title">Our <span style="color: orange">Plants</span></h2>
+  <p style="text-align:center; margin-bottom:1rem;">Indulge your senses with the beauty and fragrance of our fresh flower shop. From classic roses to exotic blooms, we offer a wide variety of fresh.</p>
+
+  <section class="products">
+    <!-- Repeated product cards -->
+    <div class="product"><img src="https://i.imgur.com/F5S6UJl.jpg" /><h3>Lily Blossom</h3><p>20 USD</p><button class="btn">ADD TO CART</button></div>
+    <div class="product"><img src="https://i.imgur.com/F5S6UJl.jpg" /><h3>Lily Blossom</h3><p>20 USD</p><button class="btn">ADD TO CART</button></div>
+    <div class="product"><img src="https://i.imgur.com/F5S6UJl.jpg" /><h3>Lily Blossom</h3><p>20 USD</p><button class="btn">ADD TO CART</button></div>
+    <div class="product"><img src="https://i.imgur.com/F5S6UJl.jpg" /><h3>Lily Blossom</h3><p>20 USD</p><button class="btn">ADD TO CART</button></div>
+    <div class="product"><img src="https://i.imgur.com/F5S6UJl.jpg" /><h3>Lily Blossom</h3><p>20 USD</p><button class="btn">ADD TO CART</button></div>
+    <div class="product"><img src="https://i.imgur.com/F5S6UJl.jpg" /><h3>Lily Blossom</h3><p>20 USD</p><button class="btn">ADD TO CART</button></div>
+  </section>
+
+  <section class="info-section">
+    <img src="https://i.imgur.com/N8CDkON.png" alt="Flower Arrangement" />
+    <div class="info-text">
+      <img class="badge" src="https://i.imgur.com/4eL5bpZ.png" alt="Certified Badge" />
+      <h2>Flower & Plants Lover</h2>
+      <p>Indulge your senses with the beauty and fragrance of our fresh flower shop. From classic roses to exotic blooms, we offer a wide variety of fresh.</p>
+      <p>Indulge your senses with the beauty and fragrance of our fresh flower shop. From classic roses to exotic blooms, we offer a wide variety of fresh.</p>
+    </div>
+  </section>
+
+  <!-- Deals Section -->
+  <section class="deals">
+    <h2><span class="highlight">Latest</span> Deals</h2>
+    <p class="subtitle">Indulge your senses with the beauty and fragrance of our fresh flower shop.</p>
+    <div class="deal-grid">
+      <div class="left-deals">
+        <div class="deal-card small" style="background-image: url('https://i.ibb.co/YkkDWR0/bloom.jpg');">
+          <div class="overlay">
+            <p class="discount">60% off | Bloom Plant</p>
+            <a href="#">Shop Now</a>
+          </div>
+        </div>
+        <div class="deal-card small" style="background-image: url('https://i.ibb.co/8Nv5yJy/ana.jpg');">
+          <div class="overlay">
+            <p class="discount">30% Off | Ana Plant</p>
+            <a href="#">Shop Now</a>
+          </div>
+        </div>
+      </div>
+      <div class="deal-card large" style="background-image: url('https://i.ibb.co/Gp8ZcXM/zabo.jpg');">
+        <div class="overlay">
+          <p class="discount">25% Off | Zabo Plant</p>
+          <a href="#">Shop Now</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Newsletter -->
+  <section class="newsletter">
+    <h2>Join the colorful <span class="highlight">Bunch</span></h2>
+    <form class="newsletter-form">
+      <input type="email" placeholder="Write email" required>
+      <button type="submit">Subscribe</button>
+    </form>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-top">
+      <div class="footer-brand">
+        <h3 class="logo">Faugei</h3>
+        <p>Indulge your senses with the beauty and fragrance of our fresh flower shop.</p>
+      </div>
+      <div class="footer-links">
+        <div>
+          <h4>Home</h4>
+          <a href="#">About Us</a>
+          <a href="#">Blog</a>
+          <a href="#">FAQ</a>
+        </div>
+        <div>
+          <h4>Features</h4>
+          <a href="#">Pricing</a>
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+        </div>
+        <div>
+          <h4>Support</h4>
+          <a href="#">Help Center</a>
+        </div>
+      </div>
+      <div class="footer-social">
+        <a href="#">in</a>
+        <a href="#">X</a>
+        <a href="#">f</a>
+        <a href="#">▶</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
